@@ -87,11 +87,11 @@ if ($orderDetails['status'] != "Unpaid") {
     exit(json_encode($data));
 }
 
-if (!checkUSDTPortal($transaction_id, $GATEWAY)) {
+if (!checkBit2PayServer($transaction_id, $GATEWAY)) {
     $data = [
         'is_success' => false,
         'code' => '406',
-        'message' => "USDT Portal status claims transaction is unpaid",
+        'message' => "bit2pay status claims transaction is unpaid",
     ];
     exit(json_encode($data));
 }
@@ -149,7 +149,7 @@ function getServerIPv6() {
     return isset($json->ip) ? $json->ip : '0';
 }
 
-function checkUSDTPortal($transaction_id, $GATEWAY) {
+function checkBit2PayServer($transaction_id, $GATEWAY) {
     $args = [
         "action" => "status",
         "transaction_id" => $transaction_id,
