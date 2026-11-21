@@ -65,7 +65,7 @@ $transaction_id = $_POST['transaction_id'];
 $user_email = $_POST['user_email'];
 $amount = $_POST['amount'];
 $fee = $_POST['fee'];
-$txn_hash = $_POST['fee'];
+$txn_hash = $_POST['transaction_id'];
 $status = $_POST['status'];
 
 $orderDetails = getInvoiceDetails($order_id, $user_email);
